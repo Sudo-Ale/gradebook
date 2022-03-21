@@ -8,7 +8,7 @@ namespace GradeBook
         public Book(string name)
         {
             grades = new List<double>();
-            Name = name;
+            Name = (String.IsNullOrEmpty(name)) ? throw new ArgumentException("Invalid name") : name.ToUpper();
         }
         public void AddGrade(char letter)
         {
@@ -87,6 +87,24 @@ namespace GradeBook
             Console.WriteLine($"Hi, you're in {Name}!");
         }
         List<double> grades;
-        public string Name;
+        /*public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if(!String.IsNullOrEmpty(value))
+                {
+                    name = value.ToUpper();
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid name");
+                }
+            }
+        }*/
+        public string Name { get; private set; }
     }
 }

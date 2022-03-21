@@ -7,7 +7,11 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new Book("Alessio's book");
+            Console.WriteLine("Hi, type the name of your book");
+            var readerName = Console.ReadLine();
+
+            var book = new Book(readerName);
+            
             book.ShowNameBook();
 
             Console.WriteLine("Enter a grade or type 'q' or 'Q' to quit");
@@ -16,6 +20,7 @@ namespace GradeBook
                 var input = Console.ReadLine();
 
                 if (input == "Q" || input == "q") break;
+                if (String.IsNullOrEmpty(input)) throw new ArgumentException("There is no values");
 
                 try
                 {

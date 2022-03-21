@@ -29,13 +29,14 @@ namespace GradeBook.Tests
             Statistics result = new Statistics();
             
             book1.AddGrade(45.7);
-            book1.AddGrade(105);
+            book1.AddGrade(99.9);
+            //book1.AddGrade(101);
             book1.AddGrade(61.2);
             
             result = book1.GetStatistics();
 
-            Assert.Equal(53.4, result.Avarage, 1);
-            Assert.Equal(61.2, result.High, 1);
+            Assert.Equal(68.9, result.Avarage, 1);
+            Assert.Equal(99.9, result.High, 1);
             Assert.Equal(45.7, result.Low, 1);
         }
         [Fact]
