@@ -10,8 +10,7 @@ namespace GradeBook
             Console.WriteLine("Hi, type the name of your book");
             var readerName = Console.ReadLine();
 
-            var book = new Book(readerName);
-            
+            var book = new Book(readerName);            
             book.ShowNameBook();
 
             Console.WriteLine("Enter a grade or type 'q' or 'Q' to quit");
@@ -43,6 +42,8 @@ namespace GradeBook
             Console.WriteLine("Done, Calculating grades..");
 
             var stats = book.GetStatistics();
+            
+            Console.WriteLine(Book.CATEGORY);
             Console.WriteLine($"The avarege is:{stats.Avarage:N1}");
             Console.WriteLine($"The highest is:{stats.High:N1}");
             Console.WriteLine($"The lowest is:{stats.Low:N1}");
