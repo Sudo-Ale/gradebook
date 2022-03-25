@@ -10,11 +10,30 @@ namespace GradeBook
             Console.WriteLine("Hi, type the name of your book");
             var readerName = Console.ReadLine();
 
-            var book = new Book(readerName);            
+            if (String.IsNullOrEmpty(readerName)) throw new ArgumentException("There is no name");
+
+            var book = new Book(readerName);
+            book.GradeAdded += OnAddedGrade;
             book.ShowNameBook();
 
-            Console.WriteLine("Enter a grade or type 'q' or 'Q' to quit");
-            while(true)
+            Console.WriteLine("Enter a grade or type 'q / Q' to quit");
+
+            EnterGrades(book);
+
+            Console.WriteLine("Done, Calculating grades..");
+
+            var stats = book.GetStatistics();
+
+            Console.WriteLine($"The subject is:{Book.CATEGORY}");
+            Console.WriteLine($"The avarege is:{stats.Avarage:N1}");
+            Console.WriteLine($"The highest is:{stats.High:N1}");
+            Console.WriteLine($"The lowest is:{stats.Low:N1}");
+            Console.WriteLine($"The letter is:{stats.Letter}");
+        }
+
+        private static void EnterGrades(Book book)
+        {
+            while (true)
             {
                 var input = Console.ReadLine();
 
@@ -26,11 +45,11 @@ namespace GradeBook
                     var grade = double.Parse(input);
                     book.AddGrade(grade);
                 }
-                catch(ArgumentException e)
+                catch (ArgumentException e)
                 {
                     Console.WriteLine(e.Message);
                 }
-                catch(FormatException e)
+                catch (FormatException e)
                 {
                     Console.WriteLine(e.Message);
                 }
@@ -39,15 +58,11 @@ namespace GradeBook
                     //...
                 }
             }
-            Console.WriteLine("Done, Calculating grades..");
+        }
 
-            var stats = book.GetStatistics();
-            
-            Console.WriteLine(Book.CATEGORY);
-            Console.WriteLine($"The avarege is:{stats.Avarage:N1}");
-            Console.WriteLine($"The highest is:{stats.High:N1}");
-            Console.WriteLine($"The lowest is:{stats.Low:N1}");
-            Console.WriteLine($"The letter is:{stats.Letter}");
+        static void OnAddedGrade(object sender, EventArgs e)
+        {
+            Console.WriteLine("A grade was added\n**");
         }
     }
 }

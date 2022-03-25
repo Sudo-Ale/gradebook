@@ -3,12 +3,21 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
-    public class Book
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+    public class NamedObject
     {
-        public Book(string name)
+        public NamedObject(string name)
+        {
+            Name = name;
+        }
+
+        public string Name { get; set; }
+    }
+    public class Book : NamedObject
+    {
+        public Book(string name) : base(name)
         {
             grades = new List<double>();
-            //Name = (String.IsNullOrEmpty(name)) ? throw new ArgumentException("Invalid name") : name;
             Name = name;
         }
         public void AddGrade(char letter)
@@ -37,12 +46,14 @@ namespace GradeBook
             if(grade <= 100 && grade >=0)
             {
                 grades.Add(grade);
+                GradeAdded(this, new EventArgs());
             }
             else
             {
                 throw new ArgumentException($"Invalid {nameof(grade)}");
             }
         }
+        public event GradeAddedDelegate GradeAdded;
         public Statistics GetStatistics()
         {
             var result = new Statistics();
@@ -85,28 +96,9 @@ namespace GradeBook
         }
         public void ShowNameBook()
         {
-            Console.WriteLine($"Hi, you're in {Name}!");
+            Console.WriteLine($"Hi, you're in {Name}'s book!");
         }
         List<double> grades;
-        /*public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if(!String.IsNullOrEmpty(value))
-                {
-                    name = value.ToUpper();
-                }
-                else
-                {
-                    throw new ArgumentException("Invalid name");
-                }
-            }
-        }*/
-        public string Name { get; set; }
-        public const string CATEGORY = "";
+        public const string CATEGORY = "Science";
     }
 }
