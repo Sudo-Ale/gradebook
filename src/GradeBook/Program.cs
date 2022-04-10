@@ -12,7 +12,11 @@ namespace GradeBook
 
             if (String.IsNullOrEmpty(readerName)) throw new ArgumentException("There is no name");
 
-            var book = new Book(readerName);
+            var book = new InMemoryBook(readerName);
+            var diskBook = new DiskBook(readerName);
+
+            EnterGrades(diskBook);
+
             book.GradeAdded += OnAddedGrade;
             book.ShowNameBook();
 
@@ -24,14 +28,13 @@ namespace GradeBook
 
             var stats = book.GetStatistics();
 
-            Console.WriteLine($"The subject is:{Book.CATEGORY}");
             Console.WriteLine($"The avarege is:{stats.Avarage:N1}");
             Console.WriteLine($"The highest is:{stats.High:N1}");
             Console.WriteLine($"The lowest is:{stats.Low:N1}");
             Console.WriteLine($"The letter is:{stats.Letter}");
         }
 
-        private static void EnterGrades(Book book)
+        private static void EnterGrades(IBook book)
         {
             while (true)
             {
@@ -55,14 +58,14 @@ namespace GradeBook
                 }
                 finally
                 {
-                    //...
+                    Console.WriteLine("**");
                 }
             }
         }
 
         static void OnAddedGrade(object sender, EventArgs e)
         {
-            Console.WriteLine("A grade was added\n**");
+            Console.WriteLine("A grade was added");
         }
     }
 }

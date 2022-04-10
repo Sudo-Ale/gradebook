@@ -105,3 +105,12 @@ C:\Users\User\source\repos\gradebook\test\GradeBook.Tests\bin\Debug\net5.0\Grade
 C:\Users\User\source\repos\gradebook\test\GradeBook.Tests\bin\Debug\net5.0\GradeBook.dll
 C:\Users\User\source\repos\gradebook\test\GradeBook.Tests\bin\Debug\net5.0\GradeBook.pdb
 C:\Users\User\source\repos\gradebook\test\GradeBook.Tests\obj\Debug\net5.0\refint\GradeBook.Tests.dll
+C:\Users\a.maggio\source\repos\gradebook\test\GradeBook.Tests\bin\Debug\net5.0\CoverletSourceRootsMapping
+C:\Users\a.maggio\source\repos\gradebook\test\GradeBook.Tests\obj\Debug\net5.0\GradeBook.Tests.csproj.AssemblyReference.cache
+C:\Users\a.maggio\source\repos\gradebook\test\GradeBook.Tests\obj\Debug\net5.0\GradeBook.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a.maggio\source\repos\gradebook\test\GradeBook.Tests\obj\Debug\net5.0\GradeBook.Tests.AssemblyInfoInputs.cache
+C:\Users\a.maggio\source\repos\gradebook\test\GradeBook.Tests\obj\Debug\net5.0\GradeBook.Tests.AssemblyInfo.cs
+C:\Users\a.maggio\source\repos\gradebook\test\GradeBook.Tests\obj\Debug\net5.0\GradeBook.Tests.csproj.CoreCompileInputs.cache
+C:\Users\a.maggio\source\repos\gradebook\test\GradeBook.Tests\obj\Debug\net5.0\GradeBook.Tests.dll
+C:\Users\a.maggio\source\repos\gradebook\test\GradeBook.Tests\obj\Debug\net5.0\ref\GradeBook.Tests.dll
+C:\Users\a.maggio\source\repos\gradebook\test\GradeBook.Tests\obj\Debug\net5.0\GradeBook.Tests.pdb
