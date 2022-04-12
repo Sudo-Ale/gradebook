@@ -27,6 +27,7 @@ namespace GradeBook
             Console.WriteLine("Done, Calculating grades..");
 
             var stats = book.GetStatistics();
+            var statsInDisk = diskBook.GetStatistics();
 
             Console.WriteLine($"The avarege is:{stats.Avarage:N1}");
             Console.WriteLine($"The highest is:{stats.High:N1}");

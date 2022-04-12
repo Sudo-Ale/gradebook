@@ -13,7 +13,6 @@ namespace GradeBook
             if(grade <= 100 && grade >=0)
             {
                 string path = @$"C:\\Users\\a.maggio\\Desktop\\{Name}.txt";
-
                 var writer = File.AppendText(path);
                 var gradeLine = grade.ToString();
 
@@ -28,7 +27,18 @@ namespace GradeBook
 
         public override Statistics GetStatistics()
         {
-            throw new NotImplementedException();
+            var result = new Statistics();
+            using(var reader = File.OpenText($"{Name}.txt"))
+            {
+                var line = reader.ReadLine();
+                while (line != null)
+                {
+                    var grade = Double.Parse(line);
+                    result.Add(grade);
+                    reader.ReadLine();
+                }
+            }
+            return result;
         }
     }
 }
